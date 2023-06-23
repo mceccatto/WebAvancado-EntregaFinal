@@ -15,3 +15,15 @@ Execução na porta 8080
 
 npm install axios bootstrap jwt-decode react-router-dom\
 Execução na porta 3000
+
+# Estrutura DB
+
+petshop/
+    categorias/
+    clientes/
+    pedidos/
+    produtos
+
+## Importação dados
+
+node .\database\import.js
