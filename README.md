@@ -18,11 +18,11 @@ Execução na porta 3000
 
 # Estrutura DB
 
-petshop/
-    categorias/
-    clientes/
-    pedidos/
-    produtos
+petshop\
+    > categorias\
+    > clientes\
+    > pedidos\
+    > produtos
 
 ## Importação dados
 
