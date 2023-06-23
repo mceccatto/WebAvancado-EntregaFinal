@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "6490f414fd0607e8be093a2f",
+        "codigo": 1,
+        "nome": "Petiscos",
+        "descricao": "Petiscos para cães e gatos"
+    },
+    {
+        "_id": "6490f427fd0607e8be093a32",
+        "codigo": 2,
+        "nome": "Rações",
+        "descricao": "Rações para cães e gatos"
+    },
+    {
+        "_id": "6490f438fd0607e8be093a35",
+        "codigo": 3,
+        "nome": "Higiene",
+        "descricao": "Higiene para cães e gatos"
+    },
+    {
+        "_id": "6490f446fd0607e8be093a38",
+        "codigo": 4,
+        "nome": "Acessórios",
+        "descricao": "Acessórios para cães e gatos"
+    },
+    {
+        "_id": "6490f450fd0607e8be093a4b",
+        "codigo": 5,
+        "nome": "Roupas",
+        "descricao": "Roupas para cães e gatos"
+    },
+    {
+        "_id": "6490f459fd0607e8be093a4e",
+        "codigo": 6,
+        "nome": "Brinquedos",
+        "descricao": "Brinquedos para cães e gatos"
+    }
+]
