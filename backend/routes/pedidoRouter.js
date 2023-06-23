@@ -8,6 +8,7 @@ router.use(auth.autorizar);
 router.get('/', pedidoController.listar);
 router.post('/', pedidoController.registrar);
 router.get('/:codigo', pedidoController.localizar);
+router.get('/:codigo/:cliente/:acao', pedidoController.localizarPedido);//unico | todos
 router.put('/:codigo/:acao', pedidoController.atualizar);
 
 module.exports = router;

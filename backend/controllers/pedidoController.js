@@ -1,4 +1,5 @@
 const pedidoModel = require('../models/pedidoModel');
+const clienteModel = require('../models/clienteModel');
 
 class ProdutoController {
     async registrar(req, res) {
@@ -57,6 +58,50 @@ class ProdutoController {
         } else {
             res.status(400).json({ 'msg': 'Pedido não encontrado!' });
         }
+    }
+
+    async localizarPedido(req, res) {
+        const codigo = req.params.codigo;
+        const codigoCliente = req.params.cliente;
+        const acao = req.params.acao;
+        if (acao === 'unico') {
+            if (codigo && (codigo <= 0 || /^[0-9]+$/.test(codigo) === false)) {//verifica se o codigo do pedido informado é valido
+                res.status(400).json({ 'msg': 'Código inválido' });
+                console.log("a");
+                return;
+            }
+            if (codigoCliente && (codigoCliente <= 0 || /^[0-9]+$/.test(codigoCliente) === false)) {//verifica se o codigo do cliente informado é valido
+                res.status(400).json({ 'msg': 'Pedido inválido' });
+                return;
+            }
+            const cliente = await clienteModel.findOne({ 'codigo': codigoCliente });
+            const resultado = await pedidoModel.findOne({ 'cliente': cliente._id, 'codigo': codigo });
+            if (resultado) {
+                res.status(200).json(resultado);
+                return;
+            } else {
+                res.status(400).json({ 'msg': 'Pedido não encontrado!' });
+                return;
+            }
+        } else if (acao === 'todos') {
+            if (codigoCliente && (codigoCliente <= 0 || /^[0-9]+$/.test(codigoCliente) === false)) {//verifica se o codigo do cliente informado é valido
+                res.status(400).json({ 'msg': 'Pedido inválido' });
+                return;
+            }
+            const cliente = await clienteModel.findOne({ 'codigo': codigoCliente });
+            const resultado = await pedidoModel.find({ 'cliente': cliente._id });
+            if (resultado) {
+                res.status(200).json(resultado);
+                return;
+            } else {
+                res.status(400).json({ 'msg': 'Pedido não encontrado!' });
+                return;
+            }
+        } else {
+            res.status(400).json({ 'msg': 'Ação inválida!' });
+            return;
+        }
+
     }
 
     async atualizar(req, res) {
